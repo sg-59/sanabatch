@@ -1,9 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Haicontext } from './create';
 
 const Singlepage = () => {
     const abc=useParams()
+   const abcd= useContext(Haicontext)
+   console.log("usecontext value",abcd);
+   
     console.log("useparams value",abc.datas);
 
     const [state1,setState1]=useState([])
@@ -30,6 +34,9 @@ const Singlepage = () => {
             <h3>{li.strCategoryDescription}</h3>
             </>
         ))}
+         <h1>name :{abcd.name}</h1>
+         <h1>place :{abcd.place}</h1>
+         <h1>age :{abcd.age}</h1>
     </div>
   )
 }
