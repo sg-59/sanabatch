@@ -1,0 +1,37 @@
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
+const Singlepage = () => {
+    const abc=useParams()
+    console.log("useparams value",abc.datas);
+
+    const [state1,setState1]=useState([])
+    useEffect(function(){
+
+        axios.get('https://www.themealdb.com/api/json/v1/1/categories.php').then(function(data){
+            console.log("api data in single page",data.data.categories);
+    setState1(data.data.categories)
+        })
+    },[])
+    
+   const filteredvalue= state1.filter((li)=>{
+        return li.strCategory==abc.datas
+    })
+    console.log("final answer",filteredvalue);
+    
+    
+  return (
+    <div>
+        {filteredvalue.map((li)=>(
+            <>
+            <img src={li.strCategoryThumb} alt="" />
+            <h3>{li.strCategory}</h3>
+            <h3>{li.strCategoryDescription}</h3>
+            </>
+        ))}
+    </div>
+  )
+}
+
+export default Singlepage
