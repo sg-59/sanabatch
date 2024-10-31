@@ -1,34 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import './hello.css'
+import React, { useContext, useEffect, useState } from 'react'
+import Singlepage from './Singlepage'
 import { Link } from 'react-router-dom'
-const Hello = () => {
+import { Haicontext } from './create'
+import axios from 'axios'
+const Hello = ({children}) => {
+
 
 const [state,setState]=useState([])
 
+async function display(){
+  const response=await axios.get('https://jsonplaceholder.typicode.com/users')
+  setState(response.data)
+}
 
-useEffect(function(){
+useEffect(()=>{
 
-    axios.get('https://www.themealdb.com/api/json/v1/1/categories.php').then(function(data){
-        console.log("api data",data.data.categories);
-setState(data.data.categories)
-    })
+  display()
+
 },[])
 
-
-
-
+console.log("state value",state);
 
   return (
-    <div className='main'>
-{state.map((datas)=>(
-    <Link to={`/cartpage/${datas.strCategory}`}>
-    <div className='sub'>
-    <img src={datas.strCategoryThumb} alt="" />
-    <h1>{datas.strCategory}</h1>
-    </div>
-    </Link>
-))}
+    <div>
+  <h1 style={{color:"red",fontSize:"30px"}}>Hello page</h1>
+<Haicontext.Provider value={state}>
+        {children}
+      </Haicontext.Provider>
     </div>
   )
 }

@@ -1,16 +1,11 @@
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Hello from './Page/Hello'
 import Singlepage from './Page/Singlepage'
-import { Haicontext } from './Page/create'
+import Sample from './Page/Sample'
 
 function App(){
 
-  const person={
-    name:"melvin",
-    age:25,
-    place:"kottayam",
-    mob:99996666
-  }
+
 
   const abc=createBrowserRouter([
   {
@@ -18,15 +13,19 @@ function App(){
     element:<Hello/>
   },
   {
-    path:'/cartpage/:datas',
+    path:'/cartpage',
     element:<Singlepage/>
+  },
+  {
+    path:"/samplepage",
+    element:<Sample/>
   }
   ])
   return (
     <>
-    <Haicontext.Provider value={person}>
+
 <RouterProvider router={abc}></RouterProvider>
-</Haicontext.Provider>
+
  </>
   )
 }
