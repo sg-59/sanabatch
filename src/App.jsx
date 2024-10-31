@@ -2,6 +2,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Hello from './Page/Hello'
 import Singlepage from './Page/Singlepage'
 import Sample from './Page/Sample'
+import Global from './Page/Global'
 
 function App(){
 
@@ -19,6 +20,10 @@ function App(){
   {
     path:"/samplepage",
     element:<Sample/>
+  },
+  {
+    path:"/global",
+    element:<Global/>
   }
   ])
   return (
