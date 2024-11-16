@@ -1,36 +1,31 @@
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
-import Hello from './Page/Hello'
-import Singlepage from './Page/Singlepage'
-import Sample from './Page/Sample'
-import Global from './Page/Global'
+import Sample from './Pages/Sample'
+import Hello from './Pages/Hello'
+import Hai from './Pages/Hai'
 
 function App(){
 
+  localStorage.setItem("Sreerag","Mern STACK DEVELOPER")
 
+  const a=localStorage.getItem('Sreerag')
 
   const abc=createBrowserRouter([
-  {
-    path:'/',
-    element:<Hello/>
-  },
-  {
-    path:'/cartpage',
-    element:<Singlepage/>
-  },
-  {
-    path:"/samplepage",
-    element:<Sample/>
-  },
-  {
-    path:"/global",
-    element:<Global/>
-  }
+{
+  path:'/',
+  element:<Sample/>
+},
+{
+  path:'/hello',
+  element:<Hello/>
+},
+{
+  path:"/hai",
+  element:<Hai/>
+}
   ])
   return (
     <>
-
 <RouterProvider router={abc}></RouterProvider>
-
  </>
   )
 }
