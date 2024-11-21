@@ -2,12 +2,10 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Sample from './Pages/Sample'
 import Hello from './Pages/Hello'
 import Hai from './Pages/Hai'
+import Userefone from './Pages/Userefone'
 
 function App(){
 
-  localStorage.setItem("Sreerag","Mern STACK DEVELOPER")
-
-  const a=localStorage.getItem('Sreerag')
 
   const abc=createBrowserRouter([
 {
@@ -21,6 +19,10 @@ function App(){
 {
   path:"/hai",
   element:<Hai/>
+},
+{
+  path:'/ref',
+  element:<Userefone/>
 }
   ])
   return (

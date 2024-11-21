@@ -1,21 +1,21 @@
-import React, { useContext }  from 'react'
-import { Appcontext } from './Store'
+import React from 'react'
+import { useSelector } from 'react-redux'
+
 
 function Hello() {
 
- const {finalvalue} =useContext(Appcontext)
 
- console.log("hello page answer",finalvalue);
+ const finalData=useSelector((state)=>state.hello.userData)
+
+ console.log("final answer is ............",finalData);
  
    
   return (
     <div>
-      <h1>Hello page</h1>
-{finalvalue?.map((li)=>(
-  <>
-  <h1>{li.name}</h1>
-  </>
-))}
+  {finalData?.map((li)=>(
+    <h1>{li.name}</h1>
+  ))}
+
     </div>
   )
 }

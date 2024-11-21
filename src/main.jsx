@@ -1,13 +1,13 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import { Storepage } from './Pages/Store.jsx'
-
-
+import Store from './Redux/Store.jsx'
+import {Provider} from 'react-redux'
 
 
 createRoot(document.getElementById('root')).render(
-<Storepage>
+<Provider store={Store}>
     <App/>
-    </Storepage>
+    </Provider>
+
 
 )
