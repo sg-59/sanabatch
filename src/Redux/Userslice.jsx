@@ -11,9 +11,14 @@ const user=createSlice({
             console.log("action valus...................",action);
             
 state.userData=action.payload
+        },
+        removeuserInfo:(state,action)=>{
+            state.userData=null
         }
     }
 })
 
-export const {addtoUserInfo}=user.actions
+export const {addtoUserInfo,removeuserInfo}=user.actions
 export default user.reducer
+
+

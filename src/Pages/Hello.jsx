@@ -1,22 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { removeuserInfo } from '../Redux/Userslice';
+
 
 
 function Hello() {
 
+  const dispatch=useDispatch()
 
- const finalData=useSelector((state)=>state.hello.userData)
+const finaloutput=useSelector((state)=>state.ok.userData)
 
- console.log("final answer is ............",finalData);
- 
+console.log("*****************************************************",finaloutput);
+
+function remove(){
+dispatch(removeuserInfo())
+}
    
   return (
-    <div>
-  {finalData?.map((li)=>(
-    <h1>{li.name}</h1>
-  ))}
+<>
+{finaloutput?.map((li)=>(
+  <h1>Name : {li.name}</h1>
+))}
 
-    </div>
+<button onClick={remove}>Remove data</button>
+</>
+
   )
 }
 

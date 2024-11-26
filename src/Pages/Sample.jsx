@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { addtoUserInfo } from '../Redux/Userslice';
 import { Link } from 'react-router-dom';
+import { UserDetailsApi } from './Api';
 
 function Sample() {
 
@@ -13,11 +14,9 @@ console.log("state value",state);
 
 
   useEffect(()=>{
-    axios.get('https://jsonplaceholder.typicode.com/users').then((response)=>{
-      console.log("Api values ********************",response.data);
-      dispatch(addtoUserInfo(response.data))
-      setState(response.data)
-    })
+ UserDetailsApi(dispatch).then((res)=>{
+setState(res)
+ })
   },[])
 
   console.log("state value 2",state);
