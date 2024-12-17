@@ -1,29 +1,35 @@
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
-import Sample from './Pages/Sample'
-import Hello from './Pages/Hello'
-import Hai from './Pages/Hai'
-import Userefone from './Pages/Userefone'
+import Signup from './Pages/Signup'
+import Login from './Pages/Login'
+import Home from './Pages/Home'
+import { useSelector } from 'react-redux'
+
 
 function App(){
+
+
+  const values=useSelector((state)=>state.userInfo.userData)
+
+  console.log("final answer in redux values",values);
+
+  if(values){
+    var token=values.token
+  }
+  
+  console.log(token);
+  
 
 
   const abc=createBrowserRouter([
 {
   path:'/',
-  element:<Sample/>
+  element:token ? <Home/> : <Login/>
 },
 {
-  path:'/hello',
-  element:<Hello/>
+  path:"/signup",
+  element:<Signup/>
 },
-{
-  path:"/hai",
-  element:<Hai/>
-},
-{
-  path:'/ref',
-  element:<Userefone/>
-}
+
   ])
   return (
     <>
