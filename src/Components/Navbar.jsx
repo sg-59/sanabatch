@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import {styled} from 'styled-components'
 import { removeData } from '../Redux/UserSlice'
+import { Link } from 'react-router-dom'
 
 const Main=styled.div`
     width: 100%;
@@ -29,7 +30,8 @@ dispatch(removeData())
 
   return (
     <Main>
-      <Header>Profile</Header>
+      <Link to={'/'}><Header>Home</Header></Link>
+     <Link to={'/profile'}><Header>Profile</Header></Link>
       <Header>Cart</Header>
       <Header>Order</Header>
       <Header>Other</Header>
