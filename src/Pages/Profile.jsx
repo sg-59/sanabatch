@@ -45,6 +45,7 @@ dispatch(removeData())
     <Navbar/>
     <div>
       <h1>{message}</h1>
+      <img width={"250px"} height={"250px"} src={profile?.image} alt="" />
    <h3>first name :{profile?.Firstname}</h3>
    <h3>Email :{profile?.Email}</h3>
    <h3>Mobile :{profile?.Mobile}</h3>

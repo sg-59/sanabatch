@@ -8,7 +8,7 @@ export const PublicRequest=axios.create({
 })
 
 
-const accessToken= JSON.parse(JSON.parse(localStorage.getItem('persist:Melvinmern')).userData).token
+const accessToken= JSON.parse(JSON.parse(localStorage.getItem('persist:Melvinmern')).userData)&&JSON.parse(JSON.parse(localStorage.getItem('persist:Melvinmern')).userData).token
 console.log("final out put ++++++++++++++++",accessToken);
 
 
